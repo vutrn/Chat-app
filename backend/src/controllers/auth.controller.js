@@ -10,7 +10,7 @@ const signup = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
     if (password.length < 6) {
-      return res.status(400).json({ message: "Password must be atleast 6 characters long" });
+      return res.status(400).json({ message: "Password must be at least 6 characters long" });
     }
 
     const user = await User.findOne({ email });
@@ -90,7 +90,7 @@ const updateProfile = async (req, res) => {
       { new: true }
     );
 
-    res.status(200).json({ profilePic });
+    res.status(200).json({ updatedUser });
   } catch (error) {
     console.log("Error in user updateProfile:", error.message);
     res.status(500).json({ message: "Server error" });
@@ -100,7 +100,6 @@ const updateProfile = async (req, res) => {
 const checkAuth = async (req, res) => {
   try {
     res.status(200).json(req.user);
-    console.log(req.user)
   } catch (error) {
     console.log("Error in user checkAuth:", error.message);
     res.status(500).json({ message: "Server error" });
