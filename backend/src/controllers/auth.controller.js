@@ -69,6 +69,7 @@ const logout = (req, res) => {
     res.cookie("jwt", "", {
       maxAge: 0,
     });
+    console.log("JWT cookie deleted");
     res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
     console.log("Error in user logout:", error.message);
