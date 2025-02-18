@@ -1,8 +1,9 @@
+import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import TextPressure from "../components/reactbits/TextPressure";
 import { useAuthStore } from "../store/useAuthStore";
 import AuthImagePattern from "../components/AuthImagePattern";
-import { Link } from "react-router-dom";
-import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +19,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="grid h-screen lg:grid-cols-2">
+    <div className="grid min-h-screen pt-16 lg:grid-cols-2">
       {/* Left Side - Form */}
       <div className="flex flex-col items-center justify-center p-6 sm:p-12">
         <div className="w-full max-w-md space-y-8">
@@ -114,12 +115,28 @@ const LoginPage = () => {
       </div>
 
       {/* Right Side - Image/Pattern */}
-      <AuthImagePattern
+      {/* <AuthImagePattern
         title={"Welcome back!"}
         subtitle={
           "Sign in to continue your conversations and catch up with your messages."
         }
-      />
+      /> */}
+      <div className="bg-base-100 relative items-center justify-center p-12 flex flex-col">
+        <TextPressure
+          text="Hello!"
+          className=""
+          textColor=""
+          flex="false"
+          width="false"
+        />
+        <div className="max-w-md text-center">
+          <h2 className="mb-4 text-2xl font-bold">Welcome back!</h2>
+          <p className="text-base-content/60">
+            Sign in to continue your conversations and catch up with your
+            messages.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
